@@ -1,6 +1,6 @@
 import gsap from "gsap";
 
-// Custom text splitter — replaces paid GSAP SplitText plugin
+// Custom char splitter — only use on elements with PLAIN TEXT (no nested HTML)
 function splitChars(selector: string | string[]): Element[] {
   const selectors = Array.isArray(selector) ? selector : [selector];
   const chars: Element[] = [];
@@ -31,13 +31,13 @@ export function initialFX() {
     delay: 1,
   });
 
-  const landingChars = splitChars([
+  // h3 and h2 are plain text — safe to char-split
+  const landingSimpleChars = splitChars([
     ".landing-info h3",
     ".landing-intro h2",
-    ".landing-intro h1",
   ]);
   gsap.fromTo(
-    landingChars,
+    landingSimpleChars,
     { opacity: 0, y: 80, filter: "blur(5px)" },
     {
       opacity: 1,
@@ -50,6 +50,21 @@ export function initialFX() {
     }
   );
 
+  // h1 has nested <br> and <span> — animate as a whole to preserve HTML structure
+  gsap.fromTo(
+    ".landing-intro h1",
+    { opacity: 0, y: 60, filter: "blur(5px)" },
+    {
+      opacity: 1,
+      duration: 1.2,
+      filter: "blur(0px)",
+      ease: "power3.inOut",
+      y: 0,
+      delay: 0.45,
+    }
+  );
+
+  // landing-h2-info is plain text — safe to char-split
   const h2InfoChars = splitChars(".landing-h2-info");
   gsap.fromTo(
     h2InfoChars,
