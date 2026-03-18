@@ -34,7 +34,7 @@ const setCharacter = (
 
                 // Change clothing colors to match site theme
                 if (mesh.material) {
-                  if (mesh.name === "BODY.SHIRT") { // The shirt mesh
+                  if (mesh.name === "BODY.SHIRT") {
                     const newMat = (mesh.material as THREE.Material).clone() as THREE.MeshStandardMaterial;
                     newMat.color = new THREE.Color("#8B4513");
                     mesh.material = newMat;
@@ -42,6 +42,11 @@ const setCharacter = (
                     const newMat = (mesh.material as THREE.Material).clone() as THREE.MeshStandardMaterial;
                     newMat.color = new THREE.Color("#000000");
                     mesh.material = newMat;
+                  } else if (mesh.name === "screenlight") {
+                    // Force invisible at start — scroll animation (GsapScroll.ts) fades it in later
+                    const mat = mesh.material as THREE.MeshStandardMaterial;
+                    mat.transparent = true;
+                    mat.opacity = 0;
                   }
                 }
 
