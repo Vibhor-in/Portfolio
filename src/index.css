@@ -124,6 +124,10 @@ body {
   text-transform: uppercase;
 }
 
+.techstack h2 span {
+  color: var(--accentColor);
+}
+
 @media screen and (min-width: 768px) {
   body {
     --cWidth: 94%;

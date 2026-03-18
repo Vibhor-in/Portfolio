@@ -8,52 +8,61 @@ const Career = () => {
           My career <span>&</span>
           <br /> experience
         </h2>
+
         <div className="career-info">
+
           <div className="career-timeline">
             <div className="career-dot"></div>
           </div>
+
+          {/* CS INFOTECH */}
+          <div className="career-info-box">
+            <div className="career-info-in">
+              <div className="career-role">
+                <h4>Software Developer Intern</h4>
+                <h5>CS Infotech Soft Solutions</h5>
+              </div>
+              <h5>Jan 2025 - Jun 2025</h5>
+            </div>
+            <p>
+              Developed backend APIs using ASP.NET Core and worked on frontend
+              using ASP.NET MVC and React.js. Gained hands-on experience with
+              SQL Server and MongoDB while building real-world applications.
+            </p>
+          </div>
+
+          {/* EMBTEL */}
           <div className="career-info-box">
             <div className="career-info-in">
               <div className="career-role">
                 <h4>Full Stack Developer</h4>
-                <h5>Ikshan</h5>
+                <h5>Embtel Web Solutions Pvt Ltd</h5>
               </div>
-              <h3>2020</h3>
+              <h5>Sep 2025 - Feb 2026</h5>
             </div>
             <p>
-              Built 6+ complete applications using React.js. Integrated backend
-              authentication using Node.js & MongoDB. Created responsive UI/UX
-              and designed wireframes using Figma.
+              Built and maintained full-stack applications using Node.js,
+              React.js, and Next.js. Developed REST APIs, authentication systems,
+              and admin panels while working on production-level projects.
             </p>
           </div>
+
+          {/* STARAGILE */}
           <div className="career-info-box">
             <div className="career-info-in">
               <div className="career-role">
-                <h4>Senior Full Stack Developer</h4>
-                <h5>Monocept (Max Life Insurance)</h5>
+                <h4>DevOps Engineer Intern</h4>
+                <h5>StarAgile</h5>
               </div>
-              <h3>2021</h3>
+              <h5>Dec 2025 - Present</h5>
             </div>
             <p>
-              Led two development teams on Mpro, a large-scale insurance
-              operations platform. Developed multiple modules using React.js &
-              migrated critical functionalities to Node.js microservices.
+              Working with AWS and DevOps practices to deploy and manage
+              applications. Learning cloud infrastructure, CI/CD pipelines,
+              Docker, and monitoring tools to improve scalability and reliability.
             </p>
           </div>
-          <div className="career-info-box">
-            <div className="career-info-in">
-              <div className="career-role">
-                <h4>Full Stack Developer</h4>
-                <h5>Logic Loop</h5>
-              </div>
-              <h3>NOW</h3>
-            </div>
-            <p>
-              Building Solid, a proprietary low-code platform using Angular,
-              Next.js & NestJS. Delivering production-ready CMS-based projects
-              including e-commerce, CRM, and import-export automation systems.
-            </p>
-          </div>
+
         </div>
       </div>
     </div>

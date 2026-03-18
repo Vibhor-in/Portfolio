@@ -5,34 +5,49 @@ import { MdArrowBack, MdArrowForward } from "react-icons/md";
 
 const projects = [
   {
-    title: "Solid Starters",
-    category: "Low-Code Platform",
-    tools: "Angular, Next.js, NestJS, MongoDB",
-    image: "/images/Solidx.png",
+    title: "School For Training",
+    category: "Training Platform (Client Project)",
+    tools:
+      "Node.js, REST APIs, Admin Panel, Manager Panel, Authentication",
+    link: "https://schoolfortraining.com",
+    image:
+      "https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=800&h=600&fit=crop",
   },
   {
-    title: "Radix",
-    category: "E-Commerce",
-    tools: "Angular, Next.js, NestJS, CMS",
-    image: "/images/radix.png",
+    title: "Datricle",
+    category: "Business Website",
+    tools:
+      "React.js, Node.js, Full Stack Development, API Integration",
+    link: "https://datricle.com/",
+    image:
+      "https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&h=600&fit=crop",
   },
   {
-    title: "Bond Cancellation",
-    category: "Import-Export Automation",
-    tools: "Angular, Next.js, NestJS, Workflows",
-    image: "/images/bond.png",
+    title: "Lonestar Innovation AI",
+    category: "AI Company Platform",
+    tools:
+      "Node.js, Backend Development, Admin Panel, Database Management",
+    link: "https://lonestarinnovation-ai.com/",
+    image:
+      "https://images.unsplash.com/photo-1677442135703-1787eea5ce01?w=800&h=600&fit=crop",
   },
   {
-    title: "Sapphire",
-    category: "CRM Platform",
-    tools: "AngularJS, NestJS, PostgreSQL",
-    image: "/images/sapphire.png",
+    title: "E-Commerce Developer Store",
+    category: "Personal Project (In Progress)",
+    tools:
+      "Next.js, Node.js, MongoDB, Authentication, Admin Panel",
+    link: "",
+    image:
+      "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&h=600&fit=crop",
   },
   {
-    title: "Mpro",
-    category: "Insurance Platform",
-    tools: "React.js, Node.js, Microservices",
-    image: "/images/Maxlife.png",
+    title: "CRM for MLM Companies",
+    category: "Personal Project (In Progress)",
+    tools:
+      "Node.js, React.js, MongoDB, Role-Based Access, Dashboard",
+    link: "",
+    image:
+      "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=600&fit=crop",
   },
 ];
 
@@ -62,6 +77,11 @@ const Work = () => {
     goToSlide(newIndex);
   }, [currentIndex, goToSlide]);
 
+  const openProject = (link: string) => {
+    if (!link) return;
+    window.open(link, "_blank");
+  };
+
   return (
     <div className="work-section" id="work">
       <div className="work-container section-container">
@@ -70,7 +90,6 @@ const Work = () => {
         </h2>
 
         <div className="carousel-wrapper">
-          {/* Navigation Arrows */}
           <button
             className="carousel-arrow carousel-arrow-left"
             onClick={goToPrev}
@@ -79,6 +98,7 @@ const Work = () => {
           >
             <MdArrowBack />
           </button>
+
           <button
             className="carousel-arrow carousel-arrow-right"
             onClick={goToNext}
@@ -88,7 +108,6 @@ const Work = () => {
             <MdArrowForward />
           </button>
 
-          {/* Slides */}
           <div className="carousel-track-container">
             <div
               className="carousel-track"
@@ -97,25 +116,39 @@ const Work = () => {
               }}
             >
               {projects.map((project, index) => (
-                <div className="carousel-slide" key={index}>
+                <div
+                  className="carousel-slide"
+                  key={index}
+                  onClick={() => openProject(project.link)}
+                  style={{ cursor: project.link ? "pointer" : "default" }}
+                >
                   <div className="carousel-content">
                     <div className="carousel-info">
                       <div className="carousel-number">
                         <h3>0{index + 1}</h3>
                       </div>
+
                       <div className="carousel-details">
                         <h4>{project.title}</h4>
+
                         <p className="carousel-category">
                           {project.category}
                         </p>
+
                         <div className="carousel-tools">
-                          <span className="tools-label">Tools & Features</span>
+                          <span className="tools-label">
+                            Tools & Features
+                          </span>
                           <p>{project.tools}</p>
                         </div>
                       </div>
                     </div>
+
                     <div className="carousel-image-wrapper">
-                      <WorkImage image={project.image} alt={project.title} />
+                      <WorkImage
+                        image={project.image}
+                        alt={project.title}
+                      />
                     </div>
                   </div>
                 </div>
@@ -123,7 +156,6 @@ const Work = () => {
             </div>
           </div>
 
-          {/* Dot Indicators */}
           <div className="carousel-dots">
             {projects.map((_, index) => (
               <button

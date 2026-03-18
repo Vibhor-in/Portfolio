@@ -13,20 +13,29 @@ import {
 
 const textureLoader = new THREE.TextureLoader();
 const imageUrls = [
+  // MERN Stack
   "/images/react2.webp",
   "/images/next2.webp",
   "/images/node2.webp",
   "/images/express.webp",
   "/images/mongo.webp",
-  "/images/mysql.webp",
+  // Core Languages
   "/images/typescript.webp",
   "/images/javascript.webp",
+  // DevOps Internship
+  "/images/aws.webp",
+  "/images/git.webp",
+  "/images/docker.webp",
+  "/images/kubernetes.webp",
+  "/images/ansible.webp",
+  "/images/jenkins.webp",
+  "/images/linux.webp",
 ];
 const textures = imageUrls.map((url) => textureLoader.load(url));
 
 const sphereGeometry = new THREE.SphereGeometry(1, 28, 28);
 
-const spheres = [...Array(30)].map(() => ({
+const spheres = [...Array(imageUrls.length)].map(() => ({
   scale: [0.7, 1, 0.8, 1, 1][Math.floor(Math.random() * 5)],
 }));
 
@@ -168,7 +177,7 @@ const TechStack = () => {
 
   return (
     <div className="techstack">
-      <h2> My Techstack</h2>
+      <h2>My <span>Tech Stack</span></h2>
 
       <Canvas
         shadows
@@ -193,7 +202,7 @@ const TechStack = () => {
             <SphereGeo
               key={i}
               {...props}
-              material={materials[Math.floor(Math.random() * materials.length)]}
+              material={materials[i % materials.length]}
               isActive={isActive}
             />
           ))}
