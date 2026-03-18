@@ -55,8 +55,8 @@ A modern and interactive portfolio website showcasing my work as a Full Stack De
 ### Installation
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/YOUR_REPO_NAME.git
-cd YOUR_REPO_NAME
+git clone https://github.com/Vibhor-in/Portfolio.git
+cd Portfolio
 
 npm install
 npm run dev
